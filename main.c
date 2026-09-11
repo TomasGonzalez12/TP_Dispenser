@@ -11,6 +11,7 @@ int main()
    
     init_config();
 
+    //Esto es solamente una prueba a ver si anda todo!
     while (true)
     {
         int distancia = tofReadDistance();
@@ -29,6 +30,12 @@ int main()
         }
 
         oledDisplay(&oled);
+        angulo_servo(0);
+        sleep(100);
+        angulo_servo(90);
+        sleep(100);
+        angulo_servo(180);
+        sleep(100);
 
         sleep_ms(100);
     }
