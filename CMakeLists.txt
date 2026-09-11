@@ -37,11 +37,8 @@ pico_sdk_init()
 add_executable(TP_Dispenser
 
         main.c
-
-        # OLED
+        hardware.c
         Oled/picoOled.c
-
-        # VL53L0X
         VL53LOX/tof.c
 )
 
@@ -56,6 +53,7 @@ pico_enable_stdio_usb(TP_Dispenser 0)
 target_link_libraries(TP_Dispenser
         pico_stdlib
         hardware_i2c
+        hardware_pwm
 )
 
 # Include directories
