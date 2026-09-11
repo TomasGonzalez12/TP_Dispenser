@@ -5,7 +5,7 @@
 
 #define I2C_SDA_PIN         14
 #define I2C_SCL_PIN         15
-#define SEÑAL_SERVO_PIN     16
+#define SIG_SERVO_PIN       16
 
 #define OLED_ADDR           0x3C
 #define VL53L0X_ADDR        0x29
