@@ -837,7 +837,7 @@ int i;
   return 1;
 } /* initSensor() */
 
-uint16_t readRangeContinuousMillimeters(void)
+int readRangeContinuousMillimeters(void)  // si la cague volver a uint16_t readRangeContinuousMillimeters(void) como estaba
 {
 int iTimeout = 0;
 uint16_t range;
