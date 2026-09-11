@@ -58,7 +58,7 @@ void angulo_servo(uint angulo)
     uint pulse_us = 1000 + (angulo * 1000 / 180);
 
     // Período = 20000 us
-    uint16_t level = (pulse_us * SERVO_TOP) / 20000;
+    uint16_t level = (pulse_us * SERVO_TOP) / SERVO_PERIODO_US;
 
     pwm_set_chan_level(slice, channel, level);
 }
