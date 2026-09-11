@@ -30,14 +30,14 @@ int main()
         }
 
         oledDisplay(&oled);
-        angulo_servo(0);
-        sleep(100);
-        angulo_servo(90);
-        sleep(100);
-        angulo_servo(180);
-        sleep(100);
 
+        angulo_servo(0);
         sleep_ms(100);
+        angulo_servo(90);
+        sleep_ms(100);
+        angulo_servo(180);
+        sleep_ms(100);
+
     }
 
    
