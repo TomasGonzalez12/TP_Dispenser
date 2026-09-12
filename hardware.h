@@ -5,6 +5,7 @@
 
 //Variables
 extern t_OledParams oled;
+extern uint32_t dato_tof;
 
 //I2C
 #define I2C_SDA_PIN         (14)
@@ -22,5 +23,6 @@ extern t_OledParams oled;
 //Funciones
 void init_config();
 void angulo_servo(uint angulo);
+bool promedio_mediciones();
 
 #endif

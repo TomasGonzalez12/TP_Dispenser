@@ -10,8 +10,8 @@ static uint slice;  //del PWM
 static uint channel; //PWM
 
 void init_config(){
-     stdio_init_all();
-
+    stdio_init_all();
+    
     // Config OLED
 
     oled.i2c = i2c1;
@@ -27,18 +27,16 @@ void init_config(){
 
     // Config VL53L0X
 
-    if (!tofInit(1, VL53L0X_ADDR, 0))
-    {
+    if (!tofInit(1, VL53L0X_ADDR, 0)){
         printf("Error inicializando VL53L0X\n");
-
-        while (true)
-        {
-            sleep_ms(1000);
-        }
+    }
+    else
+    {
+        printf("VL53L0X inicializado correctamente\n");
     }
 
     printf("VL53L0X inicializado correctamente\n");
-
+    
     //Config PWM
     gpio_set_function(SIG_SERVO_PIN, GPIO_FUNC_PWM);
     slice = pwm_gpio_to_slice_num(SIG_SERVO_PIN);
@@ -60,3 +58,19 @@ void angulo_servo(uint angulo)
     pwm_set_chan_level(slice, channel, level);
 }
 
+//Promedio
+#define ToF_MUESTRAS_MAX (10)
+uint16_t cont = 0;
+uint32_t acum_tof = 0;
+uint32_t dato_tof = 0;
+
+bool promedio_mediciones(){
+    while(cont < ToF_MUESTRAS_MAX){
+        acum_tof = tofReadDistance();
+        cont++;
+    }
+
+    dato_tof = dato_tof/ToF_MUESTRAS_MAX;
+
+    return true;
+}
